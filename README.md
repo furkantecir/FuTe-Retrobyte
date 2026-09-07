@@ -10,6 +10,19 @@ A retro arcade & pixel-art inspired theme for Spicetify, combining 80s/90s CRT w
 
 ![Main Interface](assets/Screenshot_1.png)
 
+<details>
+<summary><b>📸 Click to view more screenshots & feature previews</b></summary>
+<br>
+
+| Preview 1 | Preview 2 |
+| :---: | :---: |
+| ![Preview 3](assets/Screenshot_3.png) | ![Preview 4](assets/Screenshot_4.png) |
+| ![Preview 5](assets/Screenshot_5.png) | ![Preview 6](assets/Screenshot_6.png) |
+| ![Preview 2](assets/Screenshot_2.png) | ![Preview 7](assets/Screenshot_7.png) |
+| ![Preview 8](assets/Screenshot_8.png) | |
+
+</details>
+
 ---
 
 ## Features
