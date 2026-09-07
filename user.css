@@ -1,0 +1,1237 @@
+/* ==============================================================================
+   FuTe Retrobyte - Spicetify Theme v8.5 (Harmonized Cyberdeck & Pixel Workstation)
+   "Old hardware. New sound."
+   ============================================================================== */
+
+/* --- 1. GOOGLE FONTS IMPORT --- */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap');
+
+/* --- 2. GLOBAL ZERO-ROUND CORNER & PIXEL TYPOGRAPHY --- */
+*, *::before, *::after {
+  border-radius: 0px !important;
+  font-family: 'JetBrains Mono', 'Space Grotesk', monospace !important;
+}
+
+:root {
+  --retro-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --retro-pixel: 'Silkscreen', 'Press Start 2P', monospace;
+  --retro-ui: 'Space Grotesk', sans-serif;
+  
+  --fute-dark: #050508;
+  --fute-dark-card: #09090e;
+  
+  /* Authentic Stepped 8-Bit Pixel Block Shadows */
+  --pixel-shadow-sm: 2px 2px 0px #000000, 3px 3px 0px var(--spice-button);
+  --pixel-shadow-md: 3px 3px 0px #000000, 5px 5px 0px var(--spice-button);
+  --pixel-shadow-inset: inset 2px 2px 0px #000000, inset -2px -2px 0px rgba(255, 255, 255, 0.15);
+}
+
+body, html {
+  background-color: var(--fute-dark) !important;
+  color: #ffffff !important;
+  cursor: crosshair;
+}
+
+button, a, input, select, [role="button"] {
+  cursor: pointer !important;
+}
+
+/* --- RETRO ARCADE CRT & PIXEL ART ATMOSPHERE BACKGROUND (DEFAULT) --- */
+.main-view-container {
+  background-color: #06070a !important;
+  background-image: 
+    /* 1. CRT Screen Perimeter Depth & Vignette */
+    radial-gradient(ellipse 110% 100% at 50% 50%, transparent 42%, rgba(2, 2, 5, 0.82) 85%, #010103 100%),
+    /* 2. Top Arcade Marquee Phosphor Neon Bloom */
+    radial-gradient(ellipse 85% 32% at 50% -5%, var(--spice-button) 0%, transparent 70%),
+    /* 3. Subtle 8-Bit Pixel Alignment Crosses (+ spaced every 32px) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M15 16h3M16 15v3' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E"),
+    /* 4. Micro 8-Bit Pixel Dither Matrix (Checkerboard Noise) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.03'/%3E%3Crect x='4' y='4' width='1' height='1' fill='%23ffffff' fill-opacity='0.03'/%3E%3Crect x='2' y='6' width='1' height='1' fill='%23ffffff' fill-opacity='0.02'/%3E%3Crect x='6' y='2' width='1' height='1' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E"),
+    /* 5. Fine Pixel Matrix Grid Lines */
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(255, 255, 255, 0.025) 31px, rgba(255, 255, 255, 0.025) 32px),
+    repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(255, 255, 255, 0.025) 31px, rgba(255, 255, 255, 0.025) 32px) !important;
+  background-size: 100% 100%, 100% 100%, 32px 32px, 8px 8px, 32px 32px, 32px 32px !important;
+  background-attachment: fixed !important;
+}
+
+/* --- CYBER WALLPAPER ENGINE STYLES --- */
+body.fute-bg-grid .main-view-container {
+  background-color: #06070a !important;
+  background-image: 
+    linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.94)),
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.85) 90%),
+    repeating-linear-gradient(0deg, transparent, transparent 38px, var(--spice-button) 39px, var(--spice-button) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(255, 255, 255, 0.12) 39px, rgba(255, 255, 255, 0.12) 40px) !important;
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px !important;
+}
+
+body.fute-bg-city .main-view-container {
+  background-color: #06070a !important;
+  background-image: 
+    linear-gradient(rgba(5, 5, 8, 0.82), rgba(5, 5, 8, 0.94)),
+    radial-gradient(ellipse 90% 40% at 50% 0%, var(--spice-button) 0%, transparent 80%),
+    repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255, 255, 255, 0.03) 49px, rgba(255, 255, 255, 0.03) 50px) !important;
+}
+
+body.fute-bg-matrix .main-view-container {
+  background-color: #040b06 !important;
+  background-image: 
+    linear-gradient(rgba(4, 11, 6, 0.86), rgba(4, 11, 6, 0.95)),
+    repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0, 255, 102, 0.15) 29px, rgba(0, 255, 102, 0.15) 30px),
+    repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(0, 255, 102, 0.08) 19px, rgba(0, 255, 102, 0.08) 20px) !important;
+  background-size: 100% 100%, 30px 30px, 20px 20px !important;
+}
+
+body.fute-bg-custom .main-view-container {
+  background-color: #06070a !important;
+  background-image: 
+    linear-gradient(rgba(5, 5, 8, 0.84), rgba(5, 5, 8, 0.93)),
+    var(--fute-custom-wallpaper-url, none) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Authentic Arcade CRT Scanlines & RGB Mask Overlay */
+body::after {
+  content: " ";
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.012), rgba(0, 255, 0, 0.008), rgba(0, 0, 255, 0.012));
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.38;
+}
+body.fute-crt-disabled::after {
+  display: none !important;
+}
+
+/* Sleek Monospace Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: var(--fute-dark);
+}
+::-webkit-scrollbar-track {
+  background: #09090d;
+}
+::-webkit-scrollbar-thumb {
+  background: #252532;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--spice-button);
+}
+
+/* --- 3. TOP BAR (ARCADE MARQUEE CONSOLE) --- */
+.Root__top-bar,
+.main-topBar-container,
+header[data-testid="top-bar"] {
+  background: linear-gradient(180deg, #10121b 0%, #07080d 100%) !important;
+  border-bottom: 2px solid var(--spice-button) !important;
+  box-shadow: 0 3px 0px #000000, 0 5px 0px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Harmonized Search Bar */
+.x-searchInput-searchInputInput,
+input[data-testid="search-input"] {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  background-color: #000000 !important;
+  border: 2px solid var(--spice-button) !important;
+  box-shadow: 2px 2px 0px #000000, 3px 3px 0px var(--spice-button) !important;
+  color: #ffffff !important;
+  padding-left: 36px !important;
+  letter-spacing: 0.06em;
+}
+.x-searchInput-searchInputInput:focus,
+input[data-testid="search-input"]:focus {
+  border-color: #ffffff !important;
+  box-shadow: 2px 2px 0px #000000, 4px 4px 0px #ffffff !important;
+}
+.x-searchInput-searchInputInput::placeholder,
+input[data-testid="search-input"]::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-family: var(--retro-mono) !important;
+  text-transform: uppercase;
+}
+
+/* Top Bar Navigation Buttons */
+.main-topBar-button,
+.main-topBar-historyButtons button,
+button[data-testid="top-bar-back-button"],
+button[data-testid="top-bar-forward-button"] {
+  background-color: #0c0c12 !important;
+  border: 1px solid var(--spice-button) !important;
+  box-shadow: var(--pixel-shadow-sm) !important;
+  color: var(--spice-button) !important;
+  transition: all 0.08s ease;
+}
+.main-topBar-button:hover,
+.main-topBar-historyButtons button:hover {
+  background-color: var(--spice-button) !important;
+  color: #000000 !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000, 4px 4px 0px var(--spice-button) !important;
+}
+.main-topBar-button:active,
+.main-topBar-historyButtons button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+/* --- 4. CHIP FILTER BUTTONS --- */
+button[data-testid="chip"],
+.main-chips-chip,
+.main-yourLibraryX-filterArea button {
+  background: #0c0c12 !important;
+  border: 1px solid var(--spice-button) !important;
+  box-shadow: 2px 2px 0px #000000, 3px 3px 0px var(--spice-button) !important;
+  font-family: var(--retro-pixel), var(--retro-mono) !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  padding: 5px 12px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.08s ease;
+}
+button[data-testid="chip"]:hover,
+.main-chips-chip:hover,
+.main-yourLibraryX-filterArea button:hover {
+  background: var(--spice-highlight) !important;
+  color: var(--spice-button) !important;
+  transform: translate(-1px, -1px);
+}
+button[data-testid="chip"]:active,
+.main-chips-chip:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+button[data-testid="chip"][aria-checked="true"],
+button[data-testid="chip"][data-active="true"] {
+  background: var(--spice-button) !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 2px 2px 0px #000000, 4px 4px 0px #ffffff !important;
+}
+
+/* --- 5. LEFT & RIGHT SIDEBARS (ARCADE CABINET CHASSIS) --- */
+.Root__nav-bar,
+.Root__left-sidebar,
+.main-yourLibraryX-entryPoints {
+  background: 
+    linear-gradient(180deg, rgba(14, 16, 24, 0.96) 0%, rgba(7, 8, 13, 0.98) 100%),
+    #07080d !important;
+  border-right: 2px solid var(--spice-button) !important;
+  box-shadow: inset -1px 0px 0px rgba(255, 255, 255, 0.06), 2px 0px 0px #000000 !important;
+}
+
+.Root__right-sidebar,
+.main-nowPlayingView-container,
+.main-nowPlayingView-content {
+  background: 
+    linear-gradient(180deg, rgba(14, 16, 24, 0.96) 0%, rgba(7, 8, 13, 0.98) 100%),
+    #07080d !important;
+  border-left: 2px solid var(--spice-button) !important;
+  box-shadow: inset 1px 0px 0px rgba(255, 255, 255, 0.06), -2px 0px 0px #000000 !important;
+}
+
+.main-yourLibraryX-header {
+  border-bottom: 2px dashed var(--spice-button) !important;
+  padding-bottom: 8px !important;
+}
+.main-yourLibraryX-headerTitle {
+  font-family: var(--retro-pixel), var(--retro-mono) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--spice-button) !important;
+}
+.main-yourLibraryX-collapseButton,
+.main-yourLibraryX-header button[aria-label*="Kitaplığ"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Sidebar Playlist Cards (Arcade Slot Cartridges) */
+.main-yourLibraryX-listRowItem {
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  background: linear-gradient(90deg, rgba(16, 18, 28, 0.85) 0%, rgba(9, 10, 15, 0.95) 100%) !important;
+  box-shadow: 2px 2px 0px #000000, 3px 3px 0px rgba(0, 0, 0, 0.7) !important;
+  margin: 4px 6px !important;
+  padding: 6px 8px !important;
+  transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  position: relative;
+}
+.main-yourLibraryX-listRowItem:hover {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(30, 35, 52, 0.95) 100%) !important;
+  border-color: var(--spice-button) !important;
+  border-left: 6px solid var(--spice-button) !important;
+  transform: translateX(6px) !important;
+  box-shadow: 3px 3px 0px #000000, 5px 5px 0px var(--spice-button) !important;
+}
+.main-yourLibraryX-listRowItem:hover img,
+.main-yourLibraryX-listRowItem:hover .main-yourLibraryX-icon,
+.main-yourLibraryX-listRowItem:hover svg {
+  transform: scale(1.08) !important;
+  filter: contrast(1.15) drop-shadow(0 0 5px var(--spice-button)) !important;
+}
+.main-yourLibraryX-listRowItem img,
+.main-yourLibraryX-listRowItem .main-yourLibraryX-icon,
+.main-yourLibraryX-listRowItem svg {
+  transition: transform 0.15s ease, filter 0.15s ease !important;
+}
+.main-yourLibraryX-listRowItem[aria-selected="true"] {
+  background: linear-gradient(90deg, rgba(38, 42, 65, 0.95) 0%, rgba(20, 22, 34, 0.98) 100%) !important;
+  border-color: var(--spice-button) !important;
+  border-left: 6px solid var(--spice-button) !important;
+  box-shadow: 3px 3px 0px #000000, 6px 6px 0px var(--spice-button) !important;
+}
+
+/* --- 6. MAIN CONTENT CARDS (ARCADE ROM MODULES) --- */
+.main-card-card,
+.main-card-Card,
+.main-heroCard-card,
+div[data-testid="compact-card"],
+.main-topCard-card {
+  background: linear-gradient(160deg, #11131e 0%, #08090f 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-top: 2px solid var(--spice-button) !important;
+  box-shadow: 3px 3px 0px #000000, 5px 5px 0px var(--spice-button) !important;
+  padding: 12px !important;
+  transition: all 0.1s cubic-bezier(0,0,0.2,1) !important;
+  position: relative;
+}
+.main-card-card::before,
+.main-heroCard-card::before {
+  content: "🕹️ ARCADE ROM //";
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--spice-button);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+.main-card-card:hover,
+.main-heroCard-card:hover,
+div[data-testid="compact-card"]:hover {
+  background: linear-gradient(160deg, #181b28 0%, #0c0e16 100%) !important;
+  border-color: var(--spice-button) !important;
+  transform: translate(-2px, -3px);
+  box-shadow: 4px 4px 0px #000000, 7px 7px 0px var(--spice-button) !important;
+}
+
+.main-cardHeader-text {
+  font-family: var(--retro-mono) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.03em;
+}
+.main-cardSubHeader-root,
+.main-card-cardMetadata span {
+  font-family: var(--retro-mono) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: var(--spice-button) !important;
+  text-transform: uppercase;
+}
+
+/* --- 7. TRACKLIST TABLE (ARCADE HI-SCORE MATRIX) --- */
+.main-trackList-trackListHeader,
+.main-trackList-trackListHeaderRow {
+  background: linear-gradient(180deg, #10121b 0%, #07080d 100%) !important;
+  border-bottom: 2px dashed var(--spice-button) !important;
+  box-shadow: 0 3px 0px #000000, 0 4px 0px rgba(0, 0, 0, 0.8) !important;
+}
+.main-trackList-trackListHeaderRow th,
+.main-trackList-trackListHeaderRow span,
+.main-trackList-trackListHeaderRow button {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: var(--spice-button) !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Tracklist Rows (Arcade Leaderboard & Drag-Drop Friendly) */
+.main-trackList-trackListRow {
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: linear-gradient(90deg, rgba(14, 16, 24, 0.75) 0%, rgba(8, 9, 14, 0.85) 100%) !important;
+  margin: 3px 0 !important;
+  transition: background 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease !important;
+  cursor: default !important;
+}
+.main-trackList-trackListRow:hover {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, rgba(22, 25, 38, 0.9) 100%) !important;
+  border: 1px solid var(--spice-button) !important;
+  border-left: 5px solid var(--spice-button) !important;
+  box-shadow: 2px 2px 0px #000000, 3px 3px 0px var(--spice-button) !important;
+}
+.main-trackList-trackListRow:active {
+  cursor: grabbing !important;
+}
+.main-trackList-trackListRow.main-trackList-active,
+.main-trackList-trackListRow[aria-selected="true"] {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(28, 32, 48, 0.95) 100%) !important;
+  border: 1px solid var(--spice-button) !important;
+  border-left: 5px solid var(--spice-button) !important;
+  box-shadow: 3px 3px 0px #000000, 5px 5px 0px var(--spice-button) !important;
+}
+
+/* Song Title & Artist in Track Row */
+.main-trackList-rowTitle {
+  font-family: var(--retro-mono) !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+.main-trackList-rowSubTitle a,
+.main-trackList-rowSubTitle span {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  color: #9aa2b4 !important;
+}
+.main-trackList-rowSubTitle a:hover {
+  color: var(--spice-button) !important;
+}
+
+/* Track Number Index */
+.main-trackList-rowSectionIndex {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: var(--spice-button) !important;
+}
+
+/* Track Duration */
+.main-trackList-rowDuration {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* --- 8. BOTTOM PLAYER BAR (ARCADE AUDIO CONSOLE) --- */
+.Root__now-playing-bar,
+.main-nowPlayingBar-container,
+footer[data-testid="now-playing-bar"] {
+  background: linear-gradient(180deg, #10121b 0%, #06070a 100%) !important;
+  border-top: 2px solid var(--spice-button) !important;
+  box-shadow: 0 -3px 0px #000000, 0 -5px 0px var(--spice-button) !important;
+  padding: 0 16px !important;
+}
+
+/* Track Info in Player Bar */
+.main-trackInfo-name {
+  font-family: var(--retro-mono) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+}
+.main-trackInfo-artists a {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  color: var(--spice-button) !important;
+}
+
+/* Player Icons & Controls (Retro Arcade Micro-switches) */
+.player-controls__buttons button,
+.main-nowPlayingBar-left button,
+.main-nowPlayingBar-right button,
+.main-shuffleButton-button,
+.main-repeatButton-button {
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.12s ease !important;
+}
+.player-controls__buttons button:hover,
+.main-nowPlayingBar-left button:hover,
+.main-nowPlayingBar-right button:hover {
+  color: var(--spice-button) !important;
+  transform: scale(1.15) !important;
+  filter: drop-shadow(0 0 5px var(--spice-button)) !important;
+}
+.player-controls__buttons button:active,
+.main-nowPlayingBar-left button:active,
+.main-nowPlayingBar-right button:active {
+  transform: scale(0.95) !important;
+}
+.main-shuffleButton-button[aria-checked="true"],
+.main-repeatButton-button[aria-checked="mixed"],
+.main-repeatButton-button[aria-checked="true"],
+button.main-repeatButton-button[data-active="true"] {
+  color: var(--spice-button) !important;
+  filter: drop-shadow(0 0 6px var(--spice-button)) !important;
+}
+
+/* Play/Pause Button */
+.main-playPauseButton-button {
+  background-color: var(--spice-button) !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 2px 2px 0px #000000, 4px 4px 0px #ffffff !important;
+  transition: all 0.08s ease !important;
+}
+.main-playPauseButton-button:hover {
+  background-color: var(--spice-button-active) !important;
+  transform: translate(-1px, -1px) scale(1.05) !important;
+  box-shadow: 3px 3px 0px #000000, 5px 5px 0px #ffffff !important;
+}
+.main-playPauseButton-button:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+/* Sleek Digital Progress Bar & Monospace Timers */
+.playback-bar__progress-time-elapsed,
+.main-playbackBarRemainingTime-container {
+  font-family: var(--retro-mono) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: var(--spice-button) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 6px !important;
+  letter-spacing: 0.06em;
+  min-width: 42px;
+  text-align: center;
+}
+
+.playback-progressbar-isInteractive {
+  cursor: pointer !important;
+}
+.playback-progressbar-isInteractive:hover .x-progressBar-fillColor {
+  background: var(--spice-button-active) !important;
+}
+
+.x-progressBar-progressBarBg {
+  background: #080a10 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0px !important;
+  height: 6px !important;
+  box-shadow: inset 1px 1px 0px #000000 !important;
+  position: relative !important;
+}
+.x-progressBar-fillColor {
+  background: var(--spice-button) !important;
+  border-radius: 0px !important;
+  box-shadow: 0 0 6px var(--spice-button) !important;
+}
+
+/* Retro Pixel Progress Handle */
+.progress-bar__slider,
+.x-progressBar-sliderHandle {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 0px !important;
+  background: #ffffff !important;
+  border: 2px solid var(--spice-button) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+/* Volume Bar */
+.volume-bar .x-progressBar-progressBarBg {
+  background: #080a10 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  height: 6px !important;
+}
+.volume-bar .x-progressBar-fillColor {
+  background: var(--spice-button) !important;
+}
+
+/* --- PLAYLIST ACTION BAR & HERO BUTTONS --- */
+.main-actionBar-ActionBarRow button,
+.main-actionBar-ActionBarRow [role="button"],
+.main-actionBarBackground-background + div button {
+  font-family: var(--retro-mono) !important;
+  font-weight: 700 !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Big Play Button in Playlist View */
+.main-playButton-PlayButton,
+.main-playButton-primary,
+button[data-testid="play-button"],
+button[data-testid="action-bar-button"] {
+  background-color: var(--spice-button) !important;
+  color: #000000 !important;
+  border-radius: 0px !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000, 4px 4px 0px #ffffff !important;
+  transition: all 0.08s ease !important;
+}
+.main-playButton-PlayButton:hover,
+.main-playButton-primary:hover,
+button[data-testid="play-button"]:hover {
+  background-color: var(--spice-button-active) !important;
+  transform: translate(-1px, -1px) scale(1.05) !important;
+  box-shadow: 4px 4px 0px #000000, 6px 6px 0px #ffffff !important;
+}
+.main-playButton-PlayButton:active,
+.main-playButton-primary:active,
+button[data-testid="play-button"]:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+/* Secondary Action Buttons (e.g. + Ekle, Ad ve ayrıntılar, Shuffle, Download) */
+.main-actionBar-ActionBarRow button[data-testid="more-button"],
+.main-actionBar-ActionBarRow button:not(.main-playButton-PlayButton):not(.main-playButton-primary) {
+  background: #0d0f18 !important;
+  border: 1px solid var(--spice-button) !important;
+  color: #ffffff !important;
+  box-shadow: 2px 2px 0px #000000, 3px 3px 0px var(--spice-button) !important;
+  padding: 6px 12px !important;
+  border-radius: 0px !important;
+}
+.main-actionBar-ActionBarRow button:not(.main-playButton-PlayButton):not(.main-playButton-primary):hover {
+  background: var(--spice-button) !important;
+  color: #000000 !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0px #000000, 4px 4px 0px #ffffff !important;
+}
+
+/* --- 9. MEDIA DECKS & RIGHT SIDEBAR --- */
+.main-nowPlayingView-coverArtContainer {
+  border: 2px solid var(--spice-button) !important;
+  box-shadow: var(--pixel-shadow-md) !important;
+  position: relative;
+}
+
+.retro-cassette-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgba(5, 5, 8, 0.65);
+  border: 1px solid var(--spice-button);
+}
+.cassette-tape-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cassette-tape-header .tape-badge {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--spice-button);
+  letter-spacing: 0.08em;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 2px 6px;
+  border: 1px solid var(--spice-button);
+}
+.cassette-tape-header .tape-rec-led {
+  color: #ff1a40;
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 8px;
+  animation: retro-rec-blink 1.5s infinite;
+}
+@keyframes retro-rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.cassette-window {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 12px;
+}
+.cassette-reel {
+  width: 42px;
+  height: 42px;
+  border-radius: 50% !important;
+  background: #1a1a20;
+  border: 3px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cassette-reel .reel-spokes {
+  width: 14px;
+  height: 14px;
+  background: var(--spice-button);
+  border-radius: 50% !important;
+  position: relative;
+}
+.cassette-reel .reel-spokes::before,
+.cassette-reel .reel-spokes::after {
+  content: "";
+  position: absolute;
+  top: -6px; left: 5px;
+  width: 4px; height: 26px;
+  background: #ffffff;
+}
+.cassette-reel .reel-spokes::after {
+  transform: rotate(90deg);
+  top: 5px; left: -6px;
+  width: 26px; height: 4px;
+}
+.retro-cassette-overlay.is-playing .cassette-reel {
+  animation: spin-cassette 3.5s linear infinite;
+}
+@keyframes spin-cassette {
+  100% { transform: rotate(360deg); }
+}
+
+.cassette-tape-bridge {
+  flex: 1;
+  height: 6px;
+  background: #33333e;
+  margin: 0 10px;
+}
+
+/* Vinyl Turntable */
+.retro-vinyl-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 8, 0.6);
+  border: 1px solid var(--spice-button);
+}
+.vinyl-record {
+  width: 82%;
+  height: 82%;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, #08080a 0%, #151518 40%, #0a0a0c 60%, #1a1a20 80%, #050508 100%);
+  border: 3px solid #333340;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinyl-grooves {
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  border-radius: 50% !important;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.vinyl-center-label {
+  width: 36%;
+  height: 36%;
+  border-radius: 50% !important;
+  background: var(--spice-button);
+  border: 3px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinyl-speed {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 7px;
+  font-weight: 700;
+  color: #000000;
+}
+.vinyl-tonearm {
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 18px; height: 90px;
+  border-right: 4px solid #d4af37;
+  border-top: 4px solid #d4af37;
+  transform: rotate(-25deg);
+  transform-origin: top right;
+  transition: transform 0.5s ease;
+}
+.tonearm-head {
+  position: absolute;
+  bottom: -4px; left: -14px;
+  width: 14px; height: 8px;
+  background: #ff1a40;
+  border: 1px solid #ffffff;
+}
+.retro-vinyl-overlay.is-playing .vinyl-record {
+  animation: spin-vinyl 2.4s linear infinite;
+}
+.retro-vinyl-overlay.is-playing .vinyl-tonearm {
+  transform: rotate(5deg);
+}
+@keyframes spin-vinyl {
+  100% { transform: rotate(360deg); }
+}
+
+/* CD-ROM Deck */
+.retro-cd-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 8, 0.5);
+  border: 1px solid var(--spice-button);
+}
+.cd-disc {
+  width: 84%;
+  height: 84%;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, #202028 0%, #101015 100%);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cd-inner-ring {
+  width: 32%;
+  height: 32%;
+  border-radius: 50% !important;
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cd-spindle-hole {
+  width: 38%;
+  height: 38%;
+  border-radius: 50% !important;
+  background: #000000;
+  border: 1px solid #ffffff;
+}
+.cd-lens-laser {
+  position: absolute;
+  bottom: 14px; left: 16px;
+  width: 6px; height: 6px;
+  border-radius: 50% !important;
+  background: var(--spice-button);
+  box-shadow: 0 0 8px var(--spice-button);
+}
+.retro-cd-overlay.is-playing .cd-disc {
+  animation: spin-cd 1.6s linear infinite;
+}
+@keyframes spin-cd {
+  100% { transform: rotate(360deg); }
+}
+
+/* Hi-Fi Stereo VU Meter (No Text Collisions) */
+.retro-hifi-vumeter {
+  background: #060609;
+  border: 1px solid var(--spice-button);
+  box-shadow: var(--pixel-shadow-sm);
+  padding: 8px 12px;
+  margin: 18px 0 10px 0;
+  clear: both;
+}
+.vumeter-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--spice-button);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.vumeter-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vu-channel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vu-channel .ch-label {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: #ffffff;
+  width: 14px;
+}
+.vu-led-strip {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  background: #000;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.vu-led-strip .led {
+  flex: 1;
+  height: 8px;
+  background-color: #1a1a20;
+  border-radius: 1px !important;
+  transition: all 0.1s ease;
+}
+.vu-led-strip .led.g { --on-color: #00ff66; }
+.vu-led-strip .led.y { --on-color: #ffaa00; }
+.vu-led-strip .led.r { --on-color: #ff1a40; }
+
+.retro-hifi-vumeter.is-playing .left-strip .led:nth-child(1),
+.retro-hifi-vumeter.is-playing .left-strip .led:nth-child(2),
+.retro-hifi-vumeter.is-playing .left-strip .led:nth-child(3),
+.retro-hifi-vumeter.is-playing .right-strip .led:nth-child(1),
+.retro-hifi-vumeter.is-playing .right-strip .led:nth-child(2) {
+  background-color: #00ff66;
+}
+.retro-hifi-vumeter.is-playing .left-strip .led:nth-child(4),
+.retro-hifi-vumeter.is-playing .right-strip .led:nth-child(3),
+.retro-hifi-vumeter.is-playing .right-strip .led:nth-child(4) {
+  animation: vu-led-flicker 0.4s infinite alternate;
+}
+.retro-hifi-vumeter.is-playing .left-strip .led:nth-child(6),
+.retro-hifi-vumeter.is-playing .right-strip .led:nth-child(6) {
+  animation: vu-led-peak 0.7s infinite alternate;
+}
+@keyframes vu-led-flicker {
+  0% { background-color: #ffaa00; }
+  100% { background-color: #261d0d; }
+}
+@keyframes vu-led-peak {
+  0% { background-color: #ff1a40; }
+  100% { background-color: #33141c; }
+}
+
+/* --- 10. RETRO CYBER COMMAND TERMINAL --- */
+.retro-cyber-terminal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  z-index: 1000000;
+  align-items: center;
+  justify-content: center;
+}
+.retro-cyber-terminal-backdrop.open {
+  display: flex;
+}
+.retro-cyber-terminal-window {
+  width: 620px;
+  max-width: 92vw;
+  height: 420px;
+  background-color: #050508;
+  border: 2px solid var(--spice-button);
+  box-shadow: 4px 4px 0px #000000, 6px 6px 0px var(--spice-button);
+  display: flex;
+  flex-direction: column;
+}
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background-color: #0c0c12;
+  border-bottom: 2px solid var(--spice-button);
+}
+.terminal-titlebar .terminal-title {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--spice-button);
+  letter-spacing: 0.1em;
+}
+.terminal-titlebar .terminal-close {
+  background: transparent;
+  border: 1px solid var(--spice-button);
+  color: var(--spice-button);
+  font-family: var(--retro-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.terminal-titlebar .terminal-close:hover {
+  background: var(--spice-button);
+  color: #000;
+}
+.terminal-output {
+  flex: 1;
+  padding: 12px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--retro-mono);
+  font-size: 12px;
+}
+.term-line {
+  line-height: 1.4;
+  word-break: break-all;
+}
+.term-line.welcome { color: var(--spice-button); font-weight: 700; }
+.term-line.info    { color: #ffffff; }
+.term-line.cmd     { color: var(--spice-button); font-weight: 700; }
+.term-line.success { color: #00ff66; }
+.term-line.error   { color: #ff3366; }
+.term-line.normal  { color: #cccccc; }
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background-color: #08080d;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 8px;
+}
+.terminal-input-row .prompt {
+  font-family: var(--retro-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--spice-button);
+}
+.terminal-input-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: var(--retro-mono);
+  font-size: 12px;
+  outline: none;
+}
+
+/* --- 11. HARDWARE PRESET SWITCHER MODAL --- */
+.retrobyte-modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  z-index: 1000001;
+  align-items: center;
+  justify-content: center;
+}
+.retrobyte-modal-backdrop.open {
+  display: flex;
+}
+.retrobyte-modal-window {
+  width: 520px;
+  max-width: 90vw;
+  background-color: #050508;
+  border: 2px solid var(--spice-button);
+  box-shadow: 4px 4px 0px #000000, 6px 6px 0px var(--spice-button);
+  display: flex;
+  flex-direction: column;
+}
+.retrobyte-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #0c0c12;
+  border-bottom: 2px solid var(--spice-button);
+}
+.retro-title {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--spice-button);
+  letter-spacing: 0.1em;
+}
+.retro-close-btn {
+  background: transparent;
+  border: 1px solid var(--spice-button);
+  color: var(--spice-button);
+  font-family: var(--retro-mono);
+  padding: 2px 8px;
+  cursor: pointer;
+}
+.retrobyte-modal-body {
+  padding: 14px;
+}
+.retrobyte-osd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.retrobyte-osd-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background-color: #0a0a0f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--pixel-shadow-sm);
+  cursor: pointer;
+  transition: all 0.08s ease;
+}
+.retrobyte-osd-item:hover {
+  background-color: #120e1a;
+  border-color: var(--spice-button);
+  transform: translate(3px, -1px);
+  box-shadow: 3px 3px 0px #000000, 4px 4px 0px var(--spice-button);
+}
+.retrobyte-osd-item.active {
+  border-left: 5px solid var(--spice-button);
+  border-color: var(--spice-button);
+  background-color: #170d24;
+  box-shadow: 3px 3px 0px #000000, 5px 5px 0px var(--spice-button);
+}
+.retrobyte-osd-item .osd-slot-badge {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 6px;
+  background-color: #000000;
+  border: 1px solid var(--spice-button);
+  color: var(--spice-button);
+}
+.retrobyte-osd-item .osd-title {
+  font-family: var(--retro-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+.retrobyte-osd-item.active .osd-title {
+  color: var(--spice-button);
+}
+.retrobyte-osd-item .osd-desc {
+  font-family: var(--retro-mono);
+  font-size: 11px;
+  color: #8a93a5;
+}
+.retrobyte-modal-footer {
+  padding: 12px 16px;
+  background-color: #07070b;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.modal-toggles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.retrobyte-toggle-btn {
+  background: #0a0a0f;
+  border: 1px solid var(--spice-button);
+  color: var(--spice-button);
+  font-family: var(--retro-mono);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: var(--pixel-shadow-sm);
+  transition: all 0.08s ease;
+}
+.retrobyte-toggle-btn:hover {
+  background: var(--spice-button);
+  color: #000000;
+  transform: translate(-1px, -1px);
+}
+.retrobyte-toggle-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+.retrobyte-toggle-btn.term-open-btn {
+  border-color: var(--spice-button);
+  color: var(--spice-button);
+}
+
+/* --- 12. RETRO ARCADE SNAKE MODAL --- */
+.retro-arcade-backdrop {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  z-index: 1000002;
+  align-items: center;
+  justify-content: center;
+}
+.retro-arcade-backdrop.open {
+  display: flex;
+}
+.retro-arcade-window {
+  width: 440px;
+  max-width: 95vw;
+  background-color: #050508;
+  border: 2px solid var(--spice-button);
+  box-shadow: 4px 4px 0px #000000, 6px 6px 0px var(--spice-button);
+  display: flex;
+  flex-direction: column;
+}
+.arcade-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: #0c0c12;
+  border-bottom: 2px solid var(--spice-button);
+}
+.arcade-title {
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--spice-button);
+  letter-spacing: 0.08em;
+}
+.arcade-close {
+  background: transparent;
+  border: 1px solid var(--spice-button);
+  color: var(--spice-button);
+  font-family: var(--retro-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.arcade-close:hover {
+  background: var(--spice-button);
+  color: #000;
+}
+.arcade-screen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+  background: #020407;
+}
+#fute-arcade-canvas {
+  width: 380px;
+  height: 380px;
+  max-width: 100%;
+  border: 2px solid var(--spice-button);
+  box-shadow: 2px 2px 0px #000000, 4px 4px 0px var(--spice-button);
+  background: #050508;
+  outline: none;
+  cursor: crosshair;
+}
+.arcade-hud {
+  width: 380px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--spice-button);
+}
+.arcade-restart-btn {
+  background: #0a0a0f;
+  border: 1px solid var(--spice-button);
+  color: var(--spice-button);
+  font-family: var(--retro-pixel), var(--retro-mono);
+  font-size: 8px;
+  font-weight: 700;
+  padding: 4px 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #000000, 3px 3px 0px var(--spice-button);
+  transition: all 0.08s ease;
+}
+.arcade-restart-btn:hover {
+  background: var(--spice-button);
+  color: #000;
+  transform: translate(-1px, -1px);
+}
+.arcade-restart-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000 !important;
+}
